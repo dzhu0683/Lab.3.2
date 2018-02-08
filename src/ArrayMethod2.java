@@ -4,36 +4,40 @@ public class ArrayMethod2
 {
 	public static void main(String[] args)
 	{
-		String [] test1 = { "abba","bar","foo", "tortilla", "zebra"};
-		String [] test2 = {"amy", "bob", "claire", "sam", "tom"};
+		//Testing Arrays
+		String [] test1 = { "apple", "cucumber", "microsoft", "zorro"};
+		String [] test2 = {"banana", "cherry", "mahogany", "oreos", "pinata"};
+		int [] test3 = {3,4,2,7,12,22,0,1};
 		
-		
-		for(int x = 0; x < test1.length + test2.length; x++)
-		{
-			System.out.print(merge(test1, test2)[x] + " ");
-		}
-		
+		//Merge Test
+		long start = System.nanoTime();
+		String [] mergeResult = merge(test1, test2);
+		long end = System.nanoTime();
+		long time = end - start;
+		System.out.println("Merge test took: " + time + "nanoseconds");
+		System.out.println(Arrays.toString(mergeResult));
 	}
 	
 	public static String[] merge(String[] list1, String[] list2)
 	{
 		String[] list3 = new String[list1.length + list2.length];//Declare a new array that is blank that we are going to fill with strings from the other two array
-	      int i = 0, j = 0, k = 0;
-	      while (i < list1.length && j < list2.length) 
-	      {
-	           if (list1[i].compareTo(list2[j]) < 0) 
-	           {
-	               list3[k] = list1[i];
-	               i++;
-	           } 
-	           else 
-	           {
-	               list3[k] = list2[j];
-	               j++;
-	           }
-	           k++;
-	      }
-	      return list3;
+	    int i = 0, j = 0, k = 0;
+	    while (i < list1.length && j < list2.length) 
+	    {
+	         if (list1[i].compareTo(list2[j]) < 0) 
+	         {
+	             list3[k] = list1[i];
+	             i++;
+	         } 
+	         else 
+	         {
+	             list3[k] = list2[j];
+	             j++;
+	         }
+	         k++;
+	    }
+	    return list3;
+	    while
 	}
 	
 	public static int partition(int[] list)
@@ -41,5 +45,4 @@ public class ArrayMethod2
 		return 0;
 		
 	}
-
 }
