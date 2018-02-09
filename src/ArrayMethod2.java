@@ -14,7 +14,7 @@ public class ArrayMethod2
 		String [] mergeResult = merge(test1, test2);
 		long end = System.nanoTime();
 		long time = end - start;
-		System.out.println("Merge test took: " + time + "nanoseconds");
+		System.out.println("Merge test took: " + time + " nanoseconds");
 		System.out.println(Arrays.toString(mergeResult));
 	}
 	
@@ -22,9 +22,9 @@ public class ArrayMethod2
 	{
 		String[] list3 = new String[list1.length + list2.length];//Declare a new array that is blank that we are going to fill with strings from the other two array
 	    int i = 0, j = 0, k = 0;
-	    while (i < list1.length && j < list2.length) 
+	    while (i < list1.length && j < list2.length)
 	    {
-	         if (list1[i].compareTo(list2[j]) < 0) 
+	         if (list1[i].compareTo(list2[j]) <= 0) 
 	         {
 	             list3[k] = list1[i];
 	             i++;
@@ -36,8 +36,21 @@ public class ArrayMethod2
 	         }
 	         k++;
 	    }
+	    
+	    while(i < list1.length)
+	    {
+	    	list3[k] = list1[i];
+	        k++;
+	        i++;
+	    }
+	    while(i < list2.length)
+	    {
+	    	list3[k] = list2[j];
+	        k++;
+	        j++;
+	    }
+	    
 	    return list3;
-	    while
 	}
 	
 	public static int partition(int[] list)
