@@ -42,7 +42,7 @@ public class ArrayMethod2
 	        k++;
 	        i++;
 	    }
-	    while(i < list2.length)
+	    while(j < list2.length)
 	    {
 	    	list3[k] = list2[j];
 	        k++;
