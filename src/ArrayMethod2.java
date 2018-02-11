@@ -36,7 +36,6 @@ public class ArrayMethod2
 	         }
 	         k++;
 	    }
-	    
 	    while(i < list1.length)
 	    {
 	    	list3[k] = list1[i];
@@ -49,7 +48,6 @@ public class ArrayMethod2
 	        k++;
 	        j++;
 	    }
-	    
 	    return list3;
 	}
 	
