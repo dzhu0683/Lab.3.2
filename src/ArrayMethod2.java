@@ -22,7 +22,7 @@ public class ArrayMethod2
 		int pivotFinalPos = partition(test3);
 		end = System.nanoTime();
 		time = end - start;
-		System.out.println("Parition test took " + time + "nanoseconds");
+		System.out.println("Parition test took " + time + " nanoseconds");
 		System.out.println("Final Pivot Position:" + pivotFinalPos);
 		System.out.println(Arrays.toString(test3));
 	}
@@ -62,23 +62,33 @@ public class ArrayMethod2
 	
 	public static int partition(int[] list)
 	{
-		int high = list.length;
-		int low = 0;
-		int pivot = list[low];
-		while(low < high)
+		int[] partitioned = new int[list.length];
+		int a = 0;
+		int x = list[0];
+		for(int i = 1; i < list.length; i++)
 		{
-			while(list[low] < pivot)
+			if(list[0] > list[i]) 
 			{
-				low++;
+				partitioned[a] = list[i];
+				a++;
 			}
-			while(list[high] > pivot)
-			{
-				high--;
-			}
-			int temp = list[low];
-			list[low] = list[high];
-			list[high] = temp;
 		}
-		return low;
+		partitioned[a] = 3;
+		x = a;
+		a++;
+		for(int i = 1; i < list.length; i++) 
+		{
+			if(list[0] <= list[i])
+			{
+				partitioned[a] = list[i];
+				a++;
+			}
+		}
+		for(int i=0;i < list.length; i++) 
+		{
+			list[i] = partitioned[i];
+		}
+		System.out.println(x);
+		return x;
 	}
 }
