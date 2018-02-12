@@ -16,6 +16,15 @@ public class ArrayMethod2
 		long time = end - start;
 		System.out.println("Merge test took: " + time + " nanoseconds");
 		System.out.println(Arrays.toString(mergeResult));
+		
+		//Partition Test
+		start = System.nanoTime();
+		int pivotFinalPos = partition(test3);
+		end = System.nanoTime();
+		time = end - start;
+		System.out.println("Parition test took " + time + "nanoseconds");
+		System.out.println("Final Pivot Position:" + pivotFinalPos);
+		System.out.println(Arrays.toString(test3));
 	}
 	
 	public static String[] merge(String[] list1, String[] list2)
@@ -53,7 +62,23 @@ public class ArrayMethod2
 	
 	public static int partition(int[] list)
 	{
-		return 0;
-		
+		int high = list.length;
+		int low = 0;
+		int pivot = list[low];
+		while(low < high)
+		{
+			while(list[low] < pivot)
+			{
+				low++;
+			}
+			while(list[high] > pivot)
+			{
+				high--;
+			}
+			int temp = list[low];
+			list[low] = list[high];
+			list[high] = temp;
+		}
+		return low;
 	}
 }
